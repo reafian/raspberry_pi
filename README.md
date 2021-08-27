@@ -12,7 +12,9 @@ This is the stuff that's in this repo.
 
 1. IPV6_check.sh - IPV6 updater. A small script to automatically update the IPV6 value in setupVars.conf on my PiHole
 2. move_camera_files.sh - The script that moves the motion video over to a WD MyCloud Mirror device. It would work except for the fact that the WD Mirror always overwites the SSH keys.
-3. motion.conf - A basic motion file to record video and do something with it.
+3. move_motion.conf - A basic motion file to record video and do something with it.
+4. sounds.py - stupid python script to play sounds on movement.
+5. sounds_motion.conf - motion configation to fire sounds.py on movement.
 
 ## IPV6_check.sh
 
@@ -25,4 +27,14 @@ I had a small Raspberry Pi with a camera attached that recorded video on movemen
 ## motion.conf
 
 motion file that recorded video on movement and fired off the move_camera_files script on completion.
+
+## sounds.py
+
+Small python script to play a random sound on movement. Provided good service at my wife's school as part of a display. Everytime one of the children walked passed a random Dr. Who sound would play. "Exterminate!" was very popular.
+
+## sounds_motion.conf
+
+Just the motion.conf file to trigger sounds.py
+
+
 ---
