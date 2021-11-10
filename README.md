@@ -13,8 +13,9 @@ This is the stuff that's in this repo.
 1. IPV6_check.sh - IPV6 updater. A small script to automatically update the IPV6 value in setupVars.conf on my PiHole
 2. move_camera_files.sh - The script that moves the motion video over to a WD MyCloud Mirror device. It would work except for the fact that the WD Mirror always overwites the SSH keys.
 3. move_motion.conf - A basic motion file to record video and do something with it.
-4. sounds.py - stupid python script to play sounds on movement.
-5. sounds_motion.conf - motion configation to fire sounds.py on movement.
+4. sounds.py - Stupid python script to play sounds on movement.
+5. sounds_motion.conf - Motion configation to fire sounds.py on movement.
+5. piboot.sh - A small script to reboot the pihole in then event that lookups start failing
 
 ## IPV6_check.sh
 
@@ -36,5 +37,8 @@ Small python script to play a random sound on movement. Provided good service at
 
 Just the motion.conf file to trigger sounds.py
 
+## piboot.sh
+
+Sometimes the pihole just stops working. It's probably the least reliable piece of core infrastructure in that it seems to fail every now and then and, for some reason, it's always the last thing I look at (too many bad experiences with crappy routers). This script will do a lookup on a good, configureable, website and if the lookup fails three times in a row the pihole gets rebooted. Brutal but fair.
 
 ---
