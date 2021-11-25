@@ -15,7 +15,8 @@ This is the stuff that's in this repo.
 3. move_motion.conf - A basic motion file to record video and do something with it.
 4. sounds.py - Stupid python script to play sounds on movement.
 5. sounds_motion.conf - Motion configation to fire sounds.py on movement.
-5. piboot.sh - A small script to reboot the pihole in then event that lookups start failing
+5. piboot.sh - A small script to reboot the pihole in then event that lookups start failing.
+6. ip_address_checker_for_plex.sh - A small script to check the current public IP and send mail.
 
 ## IPV6_check.sh
 
@@ -40,5 +41,9 @@ Just the motion.conf file to trigger sounds.py
 ## piboot.sh
 
 Sometimes the pihole just stops working. It's probably the least reliable piece of core infrastructure in that it seems to fail every now and then and, for some reason, it's always the last thing I look at (too many bad experiences with crappy routers). This script will do a lookup on a good, configureable, website and if the lookup fails three times in a row the pihole gets rebooted. Brutal but fair.
+
+## ip_address_checker_for_plex.sh
+
+This script checks the current external IP and compares it to the one from the previous run. If the address has changed then it just sends a mail out to the remote plex users to let them know of the change. In this case there are also instructions on how to make the change on this particular TV. The mail really could use some formatting...
 
 ---
