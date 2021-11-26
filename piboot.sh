@@ -5,15 +5,13 @@ count_log=/tmp/pihole.counter
 
 host $lookup_server >/dev/null 2>&1
 
-echo $?
-
 if [[ $? != 0 ]]
 then
   if [[ -f $count_log ]]
   then
     current_value=$(cat $count_log)
     new_value=$(($current_value + 1))
-    if [[ $new_value == 3 ]]
+    if [[ $new_value -ge 3 ]]
     then
       echo pi hole has failed. Rebooting
       logger -s "pi hole has failed. Rebooting"
