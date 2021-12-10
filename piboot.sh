@@ -1,11 +1,10 @@
 #! /bin/bash
 
-lookup_server=www.bt.com
-count_log=/tmp/pihole.counter
+count_log=/var/run/pihole.counter
 
-host $lookup_server >/dev/null 2>&1
+tail -5 /var/log/syslog | grep -c "failed to perform an HTTPS request"
 
-if [[ $? != 0 ]]
+if [[ $? == 0 ]]
 then
   if [[ -f $count_log ]]
   then
@@ -13,9 +12,10 @@ then
     new_value=$(($current_value + 1))
     if [[ $new_value -ge 3 ]]
     then
+      echo $new_value > $count_log
       echo pi hole has failed. Rebooting
       logger -s "pi hole has failed. Rebooting"
-      reboot --force --no-wall
+      sudo reboot
     else
       echo $new_value > $count_log
     fi
